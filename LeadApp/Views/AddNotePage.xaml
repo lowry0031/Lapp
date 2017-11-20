@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="LeadApp.AddNotePage" Title="{Binding Title}">
+    <ContentPage.ToolbarItems>
+        <!--<ToolbarItem Text="Save" Clicked="SaveNote_Clicked" />-->
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Spacing="20" Padding="15">
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Reminder" />
+                <Switch Toggled="Handle_Toggled" IsToggled="{Binding RemindLater}" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand">
+                </Switch>
+            </StackLayout>
+            <DatePicker x:Name="dpRemindDate" Date="{Binding RemindDate, StringFormat='{}{0:dd/MM/yyyy}'}" IsVisible="false">
+            </DatePicker>
+            <Label Text="Notes" />
+            <Editor Text="{Binding Notes}" VerticalOptions="FillAndExpand" Keyboard="Chat" FontSize="Small" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

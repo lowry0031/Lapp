@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="LeadApp.LeadsPage" Title="{Binding Title}" x:Name="BrowseLeadPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Clicked="AddLead_Clicked" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <SearchBar>
+            </SearchBar>
+            <ListView x:Name="LeadsListView" ItemsSource="{Binding Leads}" VerticalOptions="FillAndExpand" HasUnevenRows="true" RefreshCommand="{Binding LoadLeadsCommand}" IsPullToRefreshEnabled="true" IsRefreshing="{Binding IsBusy, Mode=OneWay}" CachingStrategy="RecycleElement" ItemSelected="OnItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*">
+                                    </RowDefinition>
+                                    <RowDefinition Height="*">
+                                    </RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*">
+                                    </ColumnDefinition>
+                                    <ColumnDefinition Width="*">
+                                    </ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="0" Grid.Column="0" Text="{Binding Title}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
+                                <Frame Grid.Row="0" Grid.Column="1" Padding="3" HasShadow="false" BackgroundColor="{StaticResource Accent}">
+                                    <Label TextColor="White" HorizontalTextAlignment="Center" Text="Needs Contacted" /> 
+                                </Frame>
+<!--                                <Label HorizontalTextAlignment="End" Text="{Binding LastContacted}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />-->
+                                <Label Grid.Row="1" Text="{Binding Phone}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>  

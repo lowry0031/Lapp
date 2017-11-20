@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="LeadApp.LeadDetailPage" Title="{Binding Title}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="+ Note" Command="{Binding AddNoteCommand}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="{StaticResource Primary}">
+                <Frame.CornerRadius>0</Frame.CornerRadius>
+                <Frame.HasShadow>false</Frame.HasShadow>
+                <StackLayout Orientation="Vertical">
+                    <StackLayout x:Name="stkEmail" Orientation="Horizontal">
+                        <Label Text="{Binding Lead.Email}" />
+                    </StackLayout>
+                    <StackLayout x:Name="stkPhone" Orientation="Horizontal">
+                        <Label Text="{Binding Lead.Phone}"  />
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            <StackLayout Spacing="20" Padding="15">
+                <Label Text="Note History" />
+            </StackLayout>
+            <ListView>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

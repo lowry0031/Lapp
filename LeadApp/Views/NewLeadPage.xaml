@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="LeadApp.NewLeadPage" Title="New Lead">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Save" Clicked="Save_Clicked" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <Label Text="First Name" />
+            <Entry Text="{Binding Lead.FirstName}" />
+            <Label Text="Last Name" />
+            <Entry Text="{Binding Lead.LastName}" />
+            <Label Text="Email" />
+            <Entry Text="{Binding Lead.Email}" Keyboard="Email" />
+            <Label Text="Phone" />
+            <Entry Text="{Binding Lead.Phone}" Keyboard="Telephone" />
+            <Label Text="Notes" FontSize="Medium" />
+            <Editor Text="{Binding Lead.Notes}" VerticalOptions="FillAndExpand" Keyboard="Chat" FontSize="Small" Margin="0" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
